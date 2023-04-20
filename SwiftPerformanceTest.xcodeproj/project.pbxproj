@@ -7,15 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3C5C53C29E6876700C8C147 /* FinalClassPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C5C53B29E6876700C8C147 /* FinalClassPerson.swift */; };
+		B3C5C53E29E68AB700C8C147 /* FinalClassNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C5C53D29E68AB700C8C147 /* FinalClassNumber.swift */; };
+		B3C5C54029E68AEB00C8C147 /* ClassNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C5C53F29E68AEB00C8C147 /* ClassNumber.swift */; };
 		B3DB7EEA29E619FE0016D55A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB7EE929E619FE0016D55A /* AppDelegate.swift */; };
 		B3DB7EEC29E619FE0016D55A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB7EEB29E619FE0016D55A /* SceneDelegate.swift */; };
-		B3DB7EEE29E619FE0016D55A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB7EED29E619FE0016D55A /* ViewController.swift */; };
+		B3DB7EEE29E619FE0016D55A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB7EED29E619FE0016D55A /* MainViewController.swift */; };
 		B3DB7EF129E619FE0016D55A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3DB7EEF29E619FE0016D55A /* Main.storyboard */; };
 		B3DB7EF329E61A000016D55A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3DB7EF229E61A000016D55A /* Assets.xcassets */; };
 		B3DB7EF629E61A000016D55A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3DB7EF429E61A000016D55A /* LaunchScreen.storyboard */; };
 		B3DB7F0129E61A000016D55A /* SwiftPerformanceTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB7F0029E61A000016D55A /* SwiftPerformanceTestTests.swift */; };
 		B3DB7F0B29E61A000016D55A /* SwiftPerformanceTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB7F0A29E61A000016D55A /* SwiftPerformanceTestUITests.swift */; };
 		B3DB7F0D29E61A000016D55A /* SwiftPerformanceTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB7F0C29E61A000016D55A /* SwiftPerformanceTestUITestsLaunchTests.swift */; };
+		B3DB7F1B29E61DB50016D55A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B3DB7F1A29E61DB50016D55A /* RxCocoa */; };
+		B3DB7F1D29E61DB50016D55A /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B3DB7F1C29E61DB50016D55A /* RxRelay */; };
+		B3DB7F1F29E61DB50016D55A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B3DB7F1E29E61DB50016D55A /* RxSwift */; };
+		B3DB7F2129E61EC30016D55A /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB7F2029E61EC30016D55A /* MainViewModel.swift */; };
+		B3DB7F2329E61FF80016D55A /* TestItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB7F2229E61FF80016D55A /* TestItem.swift */; };
+		B3DB7F2629E634560016D55A /* DispatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB7F2529E634560016D55A /* DispatchViewController.swift */; };
+		B3DB7F2829E637650016D55A /* StructPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB7F2729E637650016D55A /* StructPerson.swift */; };
+		B3DB7F2A29E6376D0016D55A /* ClassPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB7F2929E6376D0016D55A /* ClassPerson.swift */; };
+		B3DB7F2C29E6390E0016D55A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB7F2B29E6390E0016D55A /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +48,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B3C5C53B29E6876700C8C147 /* FinalClassPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalClassPerson.swift; sourceTree = "<group>"; };
+		B3C5C53D29E68AB700C8C147 /* FinalClassNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalClassNumber.swift; sourceTree = "<group>"; };
+		B3C5C53F29E68AEB00C8C147 /* ClassNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassNumber.swift; sourceTree = "<group>"; };
 		B3DB7EE629E619FE0016D55A /* SwiftPerformanceTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftPerformanceTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3DB7EE929E619FE0016D55A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3DB7EEB29E619FE0016D55A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B3DB7EED29E619FE0016D55A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B3DB7EED29E619FE0016D55A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B3DB7EF029E619FE0016D55A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B3DB7EF229E61A000016D55A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3DB7EF529E61A000016D55A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +64,12 @@
 		B3DB7F0629E61A000016D55A /* SwiftPerformanceTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftPerformanceTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3DB7F0A29E61A000016D55A /* SwiftPerformanceTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPerformanceTestUITests.swift; sourceTree = "<group>"; };
 		B3DB7F0C29E61A000016D55A /* SwiftPerformanceTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPerformanceTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B3DB7F2029E61EC30016D55A /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		B3DB7F2229E61FF80016D55A /* TestItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestItem.swift; sourceTree = "<group>"; };
+		B3DB7F2529E634560016D55A /* DispatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchViewController.swift; sourceTree = "<group>"; };
+		B3DB7F2729E637650016D55A /* StructPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructPerson.swift; sourceTree = "<group>"; };
+		B3DB7F2929E6376D0016D55A /* ClassPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassPerson.swift; sourceTree = "<group>"; };
+		B3DB7F2B29E6390E0016D55A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +77,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3DB7F1F29E61DB50016D55A /* RxSwift in Frameworks */,
+				B3DB7F1D29E61DB50016D55A /* RxRelay in Frameworks */,
+				B3DB7F1B29E61DB50016D55A /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,13 +123,17 @@
 		B3DB7EE829E619FE0016D55A /* SwiftPerformanceTest */ = {
 			isa = PBXGroup;
 			children = (
+				B3DB7F2429E634430016D55A /* TestGroup */,
 				B3DB7EE929E619FE0016D55A /* AppDelegate.swift */,
 				B3DB7EEB29E619FE0016D55A /* SceneDelegate.swift */,
-				B3DB7EED29E619FE0016D55A /* ViewController.swift */,
+				B3DB7EED29E619FE0016D55A /* MainViewController.swift */,
+				B3DB7F2029E61EC30016D55A /* MainViewModel.swift */,
+				B3DB7F2229E61FF80016D55A /* TestItem.swift */,
 				B3DB7EEF29E619FE0016D55A /* Main.storyboard */,
 				B3DB7EF229E61A000016D55A /* Assets.xcassets */,
 				B3DB7EF429E61A000016D55A /* LaunchScreen.storyboard */,
 				B3DB7EF729E61A000016D55A /* Info.plist */,
+				B3DB7F2B29E6390E0016D55A /* Utils.swift */,
 			);
 			path = SwiftPerformanceTest;
 			sourceTree = "<group>";
@@ -127,6 +155,19 @@
 			path = SwiftPerformanceTestUITests;
 			sourceTree = "<group>";
 		};
+		B3DB7F2429E634430016D55A /* TestGroup */ = {
+			isa = PBXGroup;
+			children = (
+				B3DB7F2529E634560016D55A /* DispatchViewController.swift */,
+				B3DB7F2729E637650016D55A /* StructPerson.swift */,
+				B3DB7F2929E6376D0016D55A /* ClassPerson.swift */,
+				B3C5C53B29E6876700C8C147 /* FinalClassPerson.swift */,
+				B3C5C53D29E68AB700C8C147 /* FinalClassNumber.swift */,
+				B3C5C53F29E68AEB00C8C147 /* ClassNumber.swift */,
+			);
+			path = TestGroup;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +184,11 @@
 			dependencies = (
 			);
 			name = SwiftPerformanceTest;
+			packageProductDependencies = (
+				B3DB7F1A29E61DB50016D55A /* RxCocoa */,
+				B3DB7F1C29E61DB50016D55A /* RxRelay */,
+				B3DB7F1E29E61DB50016D55A /* RxSwift */,
+			);
 			productName = SwiftPerformanceTest;
 			productReference = B3DB7EE629E619FE0016D55A /* SwiftPerformanceTest.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +261,9 @@
 				Base,
 			);
 			mainGroup = B3DB7EDD29E619FE0016D55A;
+			packageReferences = (
+				B3DB7F1929E61DB50016D55A /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = B3DB7EE729E619FE0016D55A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,9 +307,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3DB7EEE29E619FE0016D55A /* ViewController.swift in Sources */,
+				B3DB7F2A29E6376D0016D55A /* ClassPerson.swift in Sources */,
+				B3DB7F2629E634560016D55A /* DispatchViewController.swift in Sources */,
+				B3DB7F2C29E6390E0016D55A /* Utils.swift in Sources */,
+				B3DB7F2329E61FF80016D55A /* TestItem.swift in Sources */,
+				B3DB7EEE29E619FE0016D55A /* MainViewController.swift in Sources */,
 				B3DB7EEA29E619FE0016D55A /* AppDelegate.swift in Sources */,
 				B3DB7EEC29E619FE0016D55A /* SceneDelegate.swift in Sources */,
+				B3C5C53E29E68AB700C8C147 /* FinalClassNumber.swift in Sources */,
+				B3DB7F2829E637650016D55A /* StructPerson.swift in Sources */,
+				B3C5C53C29E6876700C8C147 /* FinalClassPerson.swift in Sources */,
+				B3DB7F2129E61EC30016D55A /* MainViewModel.swift in Sources */,
+				B3C5C54029E68AEB00C8C147 /* ClassNumber.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +654,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B3DB7F1929E61DB50016D55A /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B3DB7F1A29E61DB50016D55A /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B3DB7F1929E61DB50016D55A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		B3DB7F1C29E61DB50016D55A /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B3DB7F1929E61DB50016D55A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		B3DB7F1E29E61DB50016D55A /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B3DB7F1929E61DB50016D55A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B3DB7EDE29E619FE0016D55A /* Project object */;
 }
