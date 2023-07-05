@@ -128,6 +128,99 @@
             </objects>
             <point key="canvasLocation" x="591" y="-26"/>
         </scene>
+        <!--Memory Leak View Controller-->
+        <scene sceneID="hTt-4S-sZT">
+            <objects>
+                <viewController storyboardIdentifier="MemoryLeakViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fef-J3-MY5" customClass="MemoryLeakViewController" customModule="SwiftPerformanceTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bM0-oq-QqL">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memory Leak Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bES-VL-1t5">
+                                <rect key="frame" x="126.66666666666669" y="96" width="140" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결과" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuI-wR-cBw">
+                                <rect key="frame" x="30" y="147" width="333" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="gX0-FC-IaG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Pa-YY-eN6">
+                                <rect key="frame" x="30" y="409" width="88" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="정상 해제"/>
+                                <connections>
+                                    <action selector="정상해제테스트:" destination="fef-J3-MY5" eventType="touchUpInside" id="PM8-zQ-gYG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXL-TL-hJN">
+                                <rect key="frame" x="30" y="465" width="92" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="해제 안 됨"/>
+                                <connections>
+                                    <action selector="해제안됨테스트:" destination="fef-J3-MY5" eventType="touchUpInside" id="Pse-qz-tNb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pyN-Zq-9Fh">
+                                <rect key="frame" x="30" y="529" width="88" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="상호 참조"/>
+                                <connections>
+                                    <action selector="상호참조테스트:" destination="fef-J3-MY5" eventType="touchUpInside" id="p0X-BV-mWt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zT-Td-Ldg">
+                                <rect key="frame" x="30" y="590" width="236" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="네트워크 테스트 - 타임아웃 5초"/>
+                                <connections>
+                                    <action selector="네트워크테스트5초:" destination="fef-J3-MY5" eventType="touchUpInside" id="bfW-2n-BUd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWS-VW-W5k">
+                                <rect key="frame" x="30" y="654" width="257" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="네트워크 테스트 - 타임아웃 999초"/>
+                                <connections>
+                                    <action selector="네트워크테스트999초:" destination="fef-J3-MY5" eventType="touchUpInside" id="OOc-a2-DF4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="L7b-yA-QQ7"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="aWS-VW-W5k" firstAttribute="top" secondItem="1zT-Td-Ldg" secondAttribute="bottom" constant="29" id="DA1-NH-Dn3"/>
+                            <constraint firstItem="vuI-wR-cBw" firstAttribute="top" secondItem="bES-VL-1t5" secondAttribute="bottom" constant="30" id="EIp-gJ-hbW"/>
+                            <constraint firstItem="1zT-Td-Ldg" firstAttribute="leading" secondItem="L7b-yA-QQ7" secondAttribute="leading" constant="30" id="IVW-F6-UHQ"/>
+                            <constraint firstItem="bES-VL-1t5" firstAttribute="centerX" secondItem="bM0-oq-QqL" secondAttribute="centerX" id="ZSi-Xf-9XP"/>
+                            <constraint firstItem="pyN-Zq-9Fh" firstAttribute="leading" secondItem="L7b-yA-QQ7" secondAttribute="leading" constant="30" id="har-Xh-Ab4"/>
+                            <constraint firstItem="pyN-Zq-9Fh" firstAttribute="top" secondItem="gXL-TL-hJN" secondAttribute="bottom" constant="29" id="hvt-Wx-eF1"/>
+                            <constraint firstItem="gXL-TL-hJN" firstAttribute="top" secondItem="5Pa-YY-eN6" secondAttribute="bottom" constant="21" id="i4e-qq-tBG"/>
+                            <constraint firstItem="5Pa-YY-eN6" firstAttribute="top" secondItem="vuI-wR-cBw" secondAttribute="bottom" constant="62" id="lWs-JX-Zgl"/>
+                            <constraint firstItem="L7b-yA-QQ7" firstAttribute="trailing" secondItem="vuI-wR-cBw" secondAttribute="trailing" constant="30" id="moV-OS-gSC"/>
+                            <constraint firstItem="1zT-Td-Ldg" firstAttribute="top" secondItem="pyN-Zq-9Fh" secondAttribute="bottom" constant="26" id="neo-IQ-gfz"/>
+                            <constraint firstItem="vuI-wR-cBw" firstAttribute="leading" secondItem="L7b-yA-QQ7" secondAttribute="leading" constant="30" id="qzb-Fc-ajG"/>
+                            <constraint firstItem="aWS-VW-W5k" firstAttribute="leading" secondItem="L7b-yA-QQ7" secondAttribute="leading" constant="30" id="s49-WG-EOP"/>
+                            <constraint firstItem="bES-VL-1t5" firstAttribute="top" secondItem="L7b-yA-QQ7" secondAttribute="top" constant="37" id="u0Y-RT-Q1B"/>
+                            <constraint firstItem="5Pa-YY-eN6" firstAttribute="leading" secondItem="L7b-yA-QQ7" secondAttribute="leading" constant="30" id="yt6-0E-t0e"/>
+                            <constraint firstItem="gXL-TL-hJN" firstAttribute="leading" secondItem="L7b-yA-QQ7" secondAttribute="leading" constant="30" id="zMl-tO-JQK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lbResult" destination="vuI-wR-cBw" id="f5U-fS-cpa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Npk-Lr-EWb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1317" y="-26"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

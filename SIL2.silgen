@@ -1,0 +1,332 @@
+sil_stage canonical
+
+import Builtin
+import Swift
+import SwiftShims
+
+class SuperView {
+  func background()
+  @objc deinit
+  init()
+}
+
+@_inheritsConvenienceInitializers final class SubView : SuperView {
+  override final func background()
+  final func test()
+  override init()
+  @objc deinit
+}
+
+// main
+sil @main : $@convention(c) (Int32, UnsafeMutablePointer<Optional<UnsafeMutablePointer<Int8>>>) -> Int32 {
+bb0(%0 : $Int32, %1 : $UnsafeMutablePointer<Optional<UnsafeMutablePointer<Int8>>>):
+  %2 = integer_literal $Builtin.Int32, 0          // user: %3
+  %3 = struct $Int32 (%2 : $Builtin.Int32)        // user: %4
+  return %3 : $Int32                              // id: %4
+} // end sil function 'main'
+
+// SuperView.background()
+sil hidden @SIL.SuperView.background() -> () : $@convention(method) (@guaranteed SuperView) -> () {
+// %0 "self"                                      // user: %1
+bb0(%0 : $SuperView):
+  debug_value %0 : $SuperView, let, name "self", argno 1, implicit // id: %1
+  %2 = integer_literal $Builtin.Word, 1           // user: %4
+  // function_ref _allocateUninitializedArray<A>(_:)
+  %3 = function_ref @Swift._allocateUninitializedArray<A>(Builtin.Word) -> ([A], Builtin.RawPointer) : $@convention(thin) <τ_0_0> (Builtin.Word) -> (@owned Array<τ_0_0>, Builtin.RawPointer) // user: %4
+  %4 = apply %3<Any>(%2) : $@convention(thin) <τ_0_0> (Builtin.Word) -> (@owned Array<τ_0_0>, Builtin.RawPointer) // users: %6, %5
+  %5 = tuple_extract %4 : $(Array<Any>, Builtin.RawPointer), 0 // user: %17
+  %6 = tuple_extract %4 : $(Array<Any>, Builtin.RawPointer), 1 // user: %7
+  %7 = pointer_to_address %6 : $Builtin.RawPointer to [strict] $*Any // user: %14
+  %8 = string_literal utf8 "초록"                 // user: %13
+  %9 = integer_literal $Builtin.Word, 6           // user: %13
+  %10 = integer_literal $Builtin.Int1, 0          // user: %13
+  %11 = metatype $@thin String.Type               // user: %13
+  // function_ref String.init(_builtinStringLiteral:utf8CodeUnitCount:isASCII:)
+  %12 = function_ref @Swift.String.init(_builtinStringLiteral: Builtin.RawPointer, utf8CodeUnitCount: Builtin.Word, isASCII: Builtin.Int1) -> Swift.String : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %13
+  %13 = apply %12(%8, %9, %10, %11) : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %15
+  %14 = init_existential_addr %7 : $*Any, $String // user: %15
+  store %13 to %14 : $*String                     // id: %15
+  // function_ref _finalizeUninitializedArray<A>(_:)
+  %16 = function_ref @Swift._finalizeUninitializedArray<A>(__owned [A]) -> [A] : $@convention(thin) <τ_0_0> (@owned Array<τ_0_0>) -> @owned Array<τ_0_0> // user: %17
+  %17 = apply %16<Any>(%5) : $@convention(thin) <τ_0_0> (@owned Array<τ_0_0>) -> @owned Array<τ_0_0> // users: %26, %23
+  // function_ref default argument 1 of print(_:separator:terminator:)
+  %18 = function_ref @default argument 1 of Swift.print(_: Any..., separator: Swift.String, terminator: Swift.String) -> () : $@convention(thin) () -> @owned String // user: %19
+  %19 = apply %18() : $@convention(thin) () -> @owned String // users: %25, %23
+  // function_ref default argument 2 of print(_:separator:terminator:)
+  %20 = function_ref @default argument 2 of Swift.print(_: Any..., separator: Swift.String, terminator: Swift.String) -> () : $@convention(thin) () -> @owned String // user: %21
+  %21 = apply %20() : $@convention(thin) () -> @owned String // users: %24, %23
+  // function_ref print(_:separator:terminator:)
+  %22 = function_ref @Swift.print(_: Any..., separator: Swift.String, terminator: Swift.String) -> () : $@convention(thin) (@guaranteed Array<Any>, @guaranteed String, @guaranteed String) -> () // user: %23
+  %23 = apply %22(%17, %19, %21) : $@convention(thin) (@guaranteed Array<Any>, @guaranteed String, @guaranteed String) -> ()
+  release_value %21 : $String                     // id: %24
+  release_value %19 : $String                     // id: %25
+  release_value %17 : $Array<Any>                 // id: %26
+  %27 = tuple ()                                  // user: %28
+  return %27 : $()                                // id: %28
+} // end sil function 'SIL.SuperView.background() -> ()'
+
+// _allocateUninitializedArray<A>(_:)
+sil [always_inline] [_semantics "array.uninitialized_intrinsic"] @Swift._allocateUninitializedArray<A>(Builtin.Word) -> ([A], Builtin.RawPointer) : $@convention(thin) <τ_0_0> (Builtin.Word) -> (@owned Array<τ_0_0>, Builtin.RawPointer)
+
+// String.init(_builtinStringLiteral:utf8CodeUnitCount:isASCII:)
+sil [always_inline] [readonly] [_semantics "string.makeUTF8"] @Swift.String.init(_builtinStringLiteral: Builtin.RawPointer, utf8CodeUnitCount: Builtin.Word, isASCII: Builtin.Int1) -> Swift.String : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String
+
+// _finalizeUninitializedArray<A>(_:)
+sil shared [readnone] [_semantics "array.finalize_intrinsic"] @Swift._finalizeUninitializedArray<A>(__owned [A]) -> [A] : $@convention(thin) <Element> (@owned Array<Element>) -> @owned Array<Element> {
+[%0: escape! v** => %r.v**, escape! v**.c*.v** => %r.v**.c*.v**]
+// %0                                             // user: %2
+bb0(%0 : $Array<Element>):
+  %1 = alloc_stack $Array<Element>                // users: %6, %5, %4, %2
+  store %0 to %1 : $*Array<Element>               // id: %2
+  // function_ref Array._endMutation()
+  %3 = function_ref @Swift.Array._endMutation() -> () : $@convention(method) <τ_0_0> (@inout Array<τ_0_0>) -> () // user: %4
+  %4 = apply %3<Element>(%1) : $@convention(method) <τ_0_0> (@inout Array<τ_0_0>) -> ()
+  %5 = load %1 : $*Array<Element>                 // user: %7
+  dealloc_stack %1 : $*Array<Element>             // id: %6
+  return %5 : $Array<Element>                     // id: %7
+} // end sil function 'Swift._finalizeUninitializedArray<A>(__owned [A]) -> [A]'
+
+// default argument 1 of print(_:separator:terminator:)
+sil shared @default argument 1 of Swift.print(_: Any..., separator: Swift.String, terminator: Swift.String) -> () : $@convention(thin) () -> @owned String {
+bb0:
+  %0 = string_literal utf8 " "                    // user: %5
+  %1 = integer_literal $Builtin.Word, 1           // user: %5
+  %2 = integer_literal $Builtin.Int1, -1          // user: %5
+  %3 = metatype $@thin String.Type                // user: %5
+  // function_ref String.init(_builtinStringLiteral:utf8CodeUnitCount:isASCII:)
+  %4 = function_ref @Swift.String.init(_builtinStringLiteral: Builtin.RawPointer, utf8CodeUnitCount: Builtin.Word, isASCII: Builtin.Int1) -> Swift.String : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %5
+  %5 = apply %4(%0, %1, %2, %3) : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %6
+  return %5 : $String                             // id: %6
+} // end sil function 'default argument 1 of Swift.print(_: Any..., separator: Swift.String, terminator: Swift.String) -> ()'
+
+// default argument 2 of print(_:separator:terminator:)
+sil shared @default argument 2 of Swift.print(_: Any..., separator: Swift.String, terminator: Swift.String) -> () : $@convention(thin) () -> @owned String {
+bb0:
+  %0 = string_literal utf8 "\n"                   // user: %5
+  %1 = integer_literal $Builtin.Word, 1           // user: %5
+  %2 = integer_literal $Builtin.Int1, -1          // user: %5
+  %3 = metatype $@thin String.Type                // user: %5
+  // function_ref String.init(_builtinStringLiteral:utf8CodeUnitCount:isASCII:)
+  %4 = function_ref @Swift.String.init(_builtinStringLiteral: Builtin.RawPointer, utf8CodeUnitCount: Builtin.Word, isASCII: Builtin.Int1) -> Swift.String : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %5
+  %5 = apply %4(%0, %1, %2, %3) : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %6
+  return %5 : $String                             // id: %6
+} // end sil function 'default argument 2 of Swift.print(_: Any..., separator: Swift.String, terminator: Swift.String) -> ()'
+
+// print(_:separator:terminator:)
+sil @Swift.print(_: Any..., separator: Swift.String, terminator: Swift.String) -> () : $@convention(thin) (@guaranteed Array<Any>, @guaranteed String, @guaranteed String) -> ()
+
+// SuperView.deinit
+sil hidden @SIL.SuperView.deinit : $@convention(method) (@guaranteed SuperView) -> @owned Builtin.NativeObject {
+// %0 "self"                                      // users: %2, %1
+bb0(%0 : $SuperView):
+  debug_value %0 : $SuperView, let, name "self", argno 1, implicit // id: %1
+  %2 = unchecked_ref_cast %0 : $SuperView to $Builtin.NativeObject // user: %3
+  return %2 : $Builtin.NativeObject               // id: %3
+} // end sil function 'SIL.SuperView.deinit'
+
+// SuperView.__deallocating_deinit
+sil hidden @SIL.SuperView.__deallocating_deinit : $@convention(method) (@owned SuperView) -> () {
+// %0 "self"                                      // users: %3, %1
+bb0(%0 : $SuperView):
+  debug_value %0 : $SuperView, let, name "self", argno 1, implicit // id: %1
+  // function_ref SuperView.deinit
+  %2 = function_ref @SIL.SuperView.deinit : $@convention(method) (@guaranteed SuperView) -> @owned Builtin.NativeObject // user: %3
+  %3 = apply %2(%0) : $@convention(method) (@guaranteed SuperView) -> @owned Builtin.NativeObject // user: %4
+  %4 = unchecked_ref_cast %3 : $Builtin.NativeObject to $SuperView // user: %5
+  dealloc_ref %4 : $SuperView                     // id: %5
+  %6 = tuple ()                                   // user: %7
+  return %6 : $()                                 // id: %7
+} // end sil function 'SIL.SuperView.__deallocating_deinit'
+
+// SuperView.__allocating_init()
+sil hidden [exact_self_class] @SIL.SuperView.__allocating_init() -> SIL.SuperView : $@convention(method) (@thick SuperView.Type) -> @owned SuperView {
+// %0 "$metatype"
+bb0(%0 : $@thick SuperView.Type):
+  %1 = alloc_ref $SuperView                       // user: %3
+  // function_ref SuperView.init()
+  %2 = function_ref @SIL.SuperView.init() -> SIL.SuperView : $@convention(method) (@owned SuperView) -> @owned SuperView // user: %3
+  %3 = apply %2(%1) : $@convention(method) (@owned SuperView) -> @owned SuperView // user: %4
+  return %3 : $SuperView                          // id: %4
+} // end sil function 'SIL.SuperView.__allocating_init() -> SIL.SuperView'
+
+// SuperView.init()
+sil hidden @SIL.SuperView.init() -> SIL.SuperView : $@convention(method) (@owned SuperView) -> @owned SuperView {
+// %0 "self"                                      // users: %2, %1
+bb0(%0 : $SuperView):
+  debug_value %0 : $SuperView, let, name "self", argno 1, implicit // id: %1
+  return %0 : $SuperView                          // id: %2
+} // end sil function 'SIL.SuperView.init() -> SIL.SuperView'
+
+// SubView.background()
+sil hidden @SIL.SubView.background() -> () : $@convention(method) (@guaranteed SubView) -> () {
+// %0 "self"                                      // user: %1
+bb0(%0 : $SubView):
+  debug_value %0 : $SubView, let, name "self", argno 1, implicit // id: %1
+  %2 = integer_literal $Builtin.Word, 1           // user: %4
+  // function_ref _allocateUninitializedArray<A>(_:)
+  %3 = function_ref @Swift._allocateUninitializedArray<A>(Builtin.Word) -> ([A], Builtin.RawPointer) : $@convention(thin) <τ_0_0> (Builtin.Word) -> (@owned Array<τ_0_0>, Builtin.RawPointer) // user: %4
+  %4 = apply %3<Any>(%2) : $@convention(thin) <τ_0_0> (Builtin.Word) -> (@owned Array<τ_0_0>, Builtin.RawPointer) // users: %6, %5
+  %5 = tuple_extract %4 : $(Array<Any>, Builtin.RawPointer), 0 // user: %17
+  %6 = tuple_extract %4 : $(Array<Any>, Builtin.RawPointer), 1 // user: %7
+  %7 = pointer_to_address %6 : $Builtin.RawPointer to [strict] $*Any // user: %14
+  %8 = string_literal utf8 "와웅"                 // user: %13
+  %9 = integer_literal $Builtin.Word, 6           // user: %13
+  %10 = integer_literal $Builtin.Int1, 0          // user: %13
+  %11 = metatype $@thin String.Type               // user: %13
+  // function_ref String.init(_builtinStringLiteral:utf8CodeUnitCount:isASCII:)
+  %12 = function_ref @Swift.String.init(_builtinStringLiteral: Builtin.RawPointer, utf8CodeUnitCount: Builtin.Word, isASCII: Builtin.Int1) -> Swift.String : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %13
+  %13 = apply %12(%8, %9, %10, %11) : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %15
+  %14 = init_existential_addr %7 : $*Any, $String // user: %15
+  store %13 to %14 : $*String                     // id: %15
+  // function_ref _finalizeUninitializedArray<A>(_:)
+  %16 = function_ref @Swift._finalizeUninitializedArray<A>(__owned [A]) -> [A] : $@convention(thin) <τ_0_0> (@owned Array<τ_0_0>) -> @owned Array<τ_0_0> // user: %17
+  %17 = apply %16<Any>(%5) : $@convention(thin) <τ_0_0> (@owned Array<τ_0_0>) -> @owned Array<τ_0_0> // users: %26, %23
+  // function_ref default argument 1 of print(_:separator:terminator:)
+  %18 = function_ref @default argument 1 of Swift.print(_: Any..., separator: Swift.String, terminator: Swift.String) -> () : $@convention(thin) () -> @owned String // user: %19
+  %19 = apply %18() : $@convention(thin) () -> @owned String // users: %25, %23
+  // function_ref default argument 2 of print(_:separator:terminator:)
+  %20 = function_ref @default argument 2 of Swift.print(_: Any..., separator: Swift.String, terminator: Swift.String) -> () : $@convention(thin) () -> @owned String // user: %21
+  %21 = apply %20() : $@convention(thin) () -> @owned String // users: %24, %23
+  // function_ref print(_:separator:terminator:)
+  %22 = function_ref @Swift.print(_: Any..., separator: Swift.String, terminator: Swift.String) -> () : $@convention(thin) (@guaranteed Array<Any>, @guaranteed String, @guaranteed String) -> () // user: %23
+  %23 = apply %22(%17, %19, %21) : $@convention(thin) (@guaranteed Array<Any>, @guaranteed String, @guaranteed String) -> ()
+  release_value %21 : $String                     // id: %24
+  release_value %19 : $String                     // id: %25
+  release_value %17 : $Array<Any>                 // id: %26
+  %27 = tuple ()                                  // user: %28
+  return %27 : $()                                // id: %28
+} // end sil function 'SIL.SubView.background() -> ()'
+
+// SubView.test()
+sil hidden @SIL.SubView.test() -> () : $@convention(method) (@guaranteed SubView) -> () {
+// %0 "self"                                      // user: %1
+bb0(%0 : $SubView):
+  debug_value %0 : $SubView, let, name "self", argno 1, implicit // id: %1
+  %2 = integer_literal $Builtin.Word, 1           // user: %4
+  // function_ref _allocateUninitializedArray<A>(_:)
+  %3 = function_ref @Swift._allocateUninitializedArray<A>(Builtin.Word) -> ([A], Builtin.RawPointer) : $@convention(thin) <τ_0_0> (Builtin.Word) -> (@owned Array<τ_0_0>, Builtin.RawPointer) // user: %4
+  %4 = apply %3<Any>(%2) : $@convention(thin) <τ_0_0> (Builtin.Word) -> (@owned Array<τ_0_0>, Builtin.RawPointer) // users: %6, %5
+  %5 = tuple_extract %4 : $(Array<Any>, Builtin.RawPointer), 0 // user: %17
+  %6 = tuple_extract %4 : $(Array<Any>, Builtin.RawPointer), 1 // user: %7
+  %7 = pointer_to_address %6 : $Builtin.RawPointer to [strict] $*Any // user: %14
+  %8 = string_literal utf8 "굿"                   // user: %13
+  %9 = integer_literal $Builtin.Word, 3           // user: %13
+  %10 = integer_literal $Builtin.Int1, 0          // user: %13
+  %11 = metatype $@thin String.Type               // user: %13
+  // function_ref String.init(_builtinStringLiteral:utf8CodeUnitCount:isASCII:)
+  %12 = function_ref @Swift.String.init(_builtinStringLiteral: Builtin.RawPointer, utf8CodeUnitCount: Builtin.Word, isASCII: Builtin.Int1) -> Swift.String : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %13
+  %13 = apply %12(%8, %9, %10, %11) : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %15
+  %14 = init_existential_addr %7 : $*Any, $String // user: %15
+  store %13 to %14 : $*String                     // id: %15
+  // function_ref _finalizeUninitializedArray<A>(_:)
+  %16 = function_ref @Swift._finalizeUninitializedArray<A>(__owned [A]) -> [A] : $@convention(thin) <τ_0_0> (@owned Array<τ_0_0>) -> @owned Array<τ_0_0> // user: %17
+  %17 = apply %16<Any>(%5) : $@convention(thin) <τ_0_0> (@owned Array<τ_0_0>) -> @owned Array<τ_0_0> // users: %26, %23
+  // function_ref default argument 1 of print(_:separator:terminator:)
+  %18 = function_ref @default argument 1 of Swift.print(_: Any..., separator: Swift.String, terminator: Swift.String) -> () : $@convention(thin) () -> @owned String // user: %19
+  %19 = apply %18() : $@convention(thin) () -> @owned String // users: %25, %23
+  // function_ref default argument 2 of print(_:separator:terminator:)
+  %20 = function_ref @default argument 2 of Swift.print(_: Any..., separator: Swift.String, terminator: Swift.String) -> () : $@convention(thin) () -> @owned String // user: %21
+  %21 = apply %20() : $@convention(thin) () -> @owned String // users: %24, %23
+  // function_ref print(_:separator:terminator:)
+  %22 = function_ref @Swift.print(_: Any..., separator: Swift.String, terminator: Swift.String) -> () : $@convention(thin) (@guaranteed Array<Any>, @guaranteed String, @guaranteed String) -> () // user: %23
+  %23 = apply %22(%17, %19, %21) : $@convention(thin) (@guaranteed Array<Any>, @guaranteed String, @guaranteed String) -> ()
+  release_value %21 : $String                     // id: %24
+  release_value %19 : $String                     // id: %25
+  release_value %17 : $Array<Any>                 // id: %26
+  %27 = tuple ()                                  // user: %28
+  return %27 : $()                                // id: %28
+} // end sil function 'SIL.SubView.test() -> ()'
+
+// SubView.__allocating_init()
+sil hidden [exact_self_class] @SIL.SubView.__allocating_init() -> SIL.SubView : $@convention(method) (@thick SubView.Type) -> @owned SubView {
+// %0 "$metatype"
+bb0(%0 : $@thick SubView.Type):
+  %1 = alloc_ref $SubView                         // user: %3
+  // function_ref SubView.init()
+  %2 = function_ref @SIL.SubView.init() -> SIL.SubView : $@convention(method) (@owned SubView) -> @owned SubView // user: %3
+  %3 = apply %2(%1) : $@convention(method) (@owned SubView) -> @owned SubView // user: %4
+  return %3 : $SubView                            // id: %4
+} // end sil function 'SIL.SubView.__allocating_init() -> SIL.SubView'
+
+// SubView.init()
+sil hidden @SIL.SubView.init() -> SIL.SubView : $@convention(method) (@owned SubView) -> @owned SubView {
+// %0 "self"                                      // user: %2
+bb0(%0 : $SubView):
+  %1 = alloc_stack [lexical] $SubView, let, name "self", implicit // users: %9, %3, %2, %10, %11
+  store %0 to %1 : $*SubView                      // id: %2
+  %3 = load %1 : $*SubView                        // user: %4
+  %4 = upcast %3 : $SubView to $SuperView         // user: %6
+  // function_ref SuperView.init()
+  %5 = function_ref @SIL.SuperView.init() -> SIL.SuperView : $@convention(method) (@owned SuperView) -> @owned SuperView // user: %6
+  %6 = apply %5(%4) : $@convention(method) (@owned SuperView) -> @owned SuperView // user: %7
+  %7 = unchecked_ref_cast %6 : $SuperView to $SubView // users: %9, %12, %8
+  strong_retain %7 : $SubView                     // id: %8
+  store %7 to %1 : $*SubView                      // id: %9
+  destroy_addr %1 : $*SubView                     // id: %10
+  dealloc_stack %1 : $*SubView                    // id: %11
+  return %7 : $SubView                            // id: %12
+} // end sil function 'SIL.SubView.init() -> SIL.SubView'
+
+// SubView.deinit
+sil hidden @SIL.SubView.deinit : $@convention(method) (@guaranteed SubView) -> @owned Builtin.NativeObject {
+// %0 "self"                                      // users: %2, %1
+bb0(%0 : $SubView):
+  debug_value %0 : $SubView, let, name "self", argno 1, implicit // id: %1
+  %2 = upcast %0 : $SubView to $SuperView         // user: %4
+  // function_ref SuperView.deinit
+  %3 = function_ref @SIL.SuperView.deinit : $@convention(method) (@guaranteed SuperView) -> @owned Builtin.NativeObject // user: %4
+  %4 = apply %3(%2) : $@convention(method) (@guaranteed SuperView) -> @owned Builtin.NativeObject // users: %5, %6
+  %5 = unchecked_ref_cast %4 : $Builtin.NativeObject to $SubView
+  return %4 : $Builtin.NativeObject               // id: %6
+} // end sil function 'SIL.SubView.deinit'
+
+// SubView.__deallocating_deinit
+sil hidden @SIL.SubView.__deallocating_deinit : $@convention(method) (@owned SubView) -> () {
+// %0 "self"                                      // users: %3, %1
+bb0(%0 : $SubView):
+  debug_value %0 : $SubView, let, name "self", argno 1, implicit // id: %1
+  // function_ref SubView.deinit
+  %2 = function_ref @SIL.SubView.deinit : $@convention(method) (@guaranteed SubView) -> @owned Builtin.NativeObject // user: %3
+  %3 = apply %2(%0) : $@convention(method) (@guaranteed SubView) -> @owned Builtin.NativeObject // user: %4
+  %4 = unchecked_ref_cast %3 : $Builtin.NativeObject to $SubView // user: %5
+  dealloc_ref %4 : $SubView                       // id: %5
+  %6 = tuple ()                                   // user: %7
+  return %6 : $()                                 // id: %7
+} // end sil function 'SIL.SubView.__deallocating_deinit'
+
+// Array._endMutation()
+sil shared [_semantics "array.end_mutation"] @Swift.Array._endMutation() -> () : $@convention(method) <Element> (@inout Array<Element>) -> () {
+[%0: noescape! **]
+// %0                                             // users: %9, %1
+bb0(%0 : $*Array<Element>):
+  %1 = struct_element_addr %0 : $*Array<Element>, #Array._buffer // user: %2
+  %2 = struct_element_addr %1 : $*_ArrayBuffer<Element>, #_ArrayBuffer._storage // user: %3
+  %3 = struct_element_addr %2 : $*_BridgeStorage<__ContiguousArrayStorageBase>, #_BridgeStorage.rawValue // user: %4
+  %4 = load %3 : $*Builtin.BridgeObject           // user: %5
+  %5 = end_cow_mutation %4 : $Builtin.BridgeObject // user: %6
+  %6 = struct $_BridgeStorage<__ContiguousArrayStorageBase> (%5 : $Builtin.BridgeObject) // user: %7
+  %7 = struct $_ArrayBuffer<Element> (%6 : $_BridgeStorage<__ContiguousArrayStorageBase>) // user: %8
+  %8 = struct $Array<Element> (%7 : $_ArrayBuffer<Element>) // user: %9
+  store %8 to %0 : $*Array<Element>               // id: %9
+  %10 = tuple ()                                  // user: %11
+  return %10 : $()                                // id: %11
+} // end sil function 'Swift.Array._endMutation() -> ()'
+
+sil_vtable SuperView {
+  #SuperView.background: (SuperView) -> () -> () : @SIL.SuperView.background() -> ()	// SuperView.background()
+  #SuperView.init!allocator: (SuperView.Type) -> () -> SuperView : @SIL.SuperView.__allocating_init() -> SIL.SuperView	// SuperView.__allocating_init()
+  #SuperView.deinit!deallocator: @SIL.SuperView.__deallocating_deinit	// SuperView.__deallocating_deinit
+}
+
+sil_vtable SubView {
+  #SuperView.background: (SuperView) -> () -> () : @SIL.SubView.background() -> () [override]	// SubView.background()
+  #SuperView.init!allocator: (SuperView.Type) -> () -> SuperView : @SIL.SubView.__allocating_init() -> SIL.SubView [override]	// SubView.__allocating_init()
+  #SubView.deinit!deallocator: @SIL.SubView.__deallocating_deinit	// SubView.__deallocating_deinit
+}
+
+
+
+// Mappings from '#fileID' to '#filePath':
+//   'SIL/SIL.swift' => 'SIL.swift'
+
+

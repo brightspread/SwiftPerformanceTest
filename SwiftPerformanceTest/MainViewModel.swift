@@ -18,6 +18,7 @@ final class MainViewModel: MainViewModelType {
     
     init() {
         let dispatchTest = TestItem(name: "Dispatch", viewControllerName: "DispatchViewController")
-        testItems = Observable.of([dispatchTest])
+        let memoryLeakTest = TestItem(name: "Memory Leak", viewControllerName: "MemoryLeakViewController")
+        testItems = Observable.of([dispatchTest, memoryLeakTest])
     }
 }

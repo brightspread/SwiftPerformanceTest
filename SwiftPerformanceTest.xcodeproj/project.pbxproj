@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B34CDF2429F12421003B2E63 /* MemoryLeakViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34CDF2329F12421003B2E63 /* MemoryLeakViewController.swift */; };
+		B34CDF2629F125F9003B2E63 /* LeakPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34CDF2529F125F9003B2E63 /* LeakPerson.swift */; };
+		B35BB8BD2A42BDC900AECD45 /* SIL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BB8BC2A42BDC900AECD45 /* SIL.swift */; };
 		B3C5C53C29E6876700C8C147 /* FinalClassPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C5C53B29E6876700C8C147 /* FinalClassPerson.swift */; };
 		B3C5C53E29E68AB700C8C147 /* FinalClassNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C5C53D29E68AB700C8C147 /* FinalClassNumber.swift */; };
 		B3C5C54029E68AEB00C8C147 /* ClassNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C5C53F29E68AEB00C8C147 /* ClassNumber.swift */; };
@@ -48,6 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B34CDF2329F12421003B2E63 /* MemoryLeakViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryLeakViewController.swift; sourceTree = "<group>"; };
+		B34CDF2529F125F9003B2E63 /* LeakPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeakPerson.swift; sourceTree = "<group>"; };
+		B35BB8BC2A42BDC900AECD45 /* SIL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIL.swift; sourceTree = "<group>"; };
 		B3C5C53B29E6876700C8C147 /* FinalClassPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalClassPerson.swift; sourceTree = "<group>"; };
 		B3C5C53D29E68AB700C8C147 /* FinalClassNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalClassNumber.swift; sourceTree = "<group>"; };
 		B3C5C53F29E68AEB00C8C147 /* ClassNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassNumber.swift; sourceTree = "<group>"; };
@@ -100,9 +106,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B34CDF2129F123F6003B2E63 /* MemoryLeak */ = {
+			isa = PBXGroup;
+			children = (
+				B34CDF2329F12421003B2E63 /* MemoryLeakViewController.swift */,
+				B34CDF2529F125F9003B2E63 /* LeakPerson.swift */,
+			);
+			path = MemoryLeak;
+			sourceTree = "<group>";
+		};
+		B34CDF2229F1240A003B2E63 /* Dispatch */ = {
+			isa = PBXGroup;
+			children = (
+				B3DB7F2529E634560016D55A /* DispatchViewController.swift */,
+				B3DB7F2729E637650016D55A /* StructPerson.swift */,
+				B3DB7F2929E6376D0016D55A /* ClassPerson.swift */,
+				B3C5C53B29E6876700C8C147 /* FinalClassPerson.swift */,
+				B3C5C53D29E68AB700C8C147 /* FinalClassNumber.swift */,
+				B3C5C53F29E68AEB00C8C147 /* ClassNumber.swift */,
+			);
+			path = Dispatch;
+			sourceTree = "<group>";
+		};
 		B3DB7EDD29E619FE0016D55A = {
 			isa = PBXGroup;
 			children = (
+				B35BB8BC2A42BDC900AECD45 /* SIL.swift */,
 				B3DB7EE829E619FE0016D55A /* SwiftPerformanceTest */,
 				B3DB7EFF29E61A000016D55A /* SwiftPerformanceTestTests */,
 				B3DB7F0929E61A000016D55A /* SwiftPerformanceTestUITests */,
@@ -158,12 +187,8 @@
 		B3DB7F2429E634430016D55A /* TestGroup */ = {
 			isa = PBXGroup;
 			children = (
-				B3DB7F2529E634560016D55A /* DispatchViewController.swift */,
-				B3DB7F2729E637650016D55A /* StructPerson.swift */,
-				B3DB7F2929E6376D0016D55A /* ClassPerson.swift */,
-				B3C5C53B29E6876700C8C147 /* FinalClassPerson.swift */,
-				B3C5C53D29E68AB700C8C147 /* FinalClassNumber.swift */,
-				B3C5C53F29E68AEB00C8C147 /* ClassNumber.swift */,
+				B34CDF2229F1240A003B2E63 /* Dispatch */,
+				B34CDF2129F123F6003B2E63 /* MemoryLeak */,
 			);
 			path = TestGroup;
 			sourceTree = "<group>";
@@ -309,10 +334,13 @@
 			files = (
 				B3DB7F2A29E6376D0016D55A /* ClassPerson.swift in Sources */,
 				B3DB7F2629E634560016D55A /* DispatchViewController.swift in Sources */,
+				B34CDF2429F12421003B2E63 /* MemoryLeakViewController.swift in Sources */,
 				B3DB7F2C29E6390E0016D55A /* Utils.swift in Sources */,
 				B3DB7F2329E61FF80016D55A /* TestItem.swift in Sources */,
 				B3DB7EEE29E619FE0016D55A /* MainViewController.swift in Sources */,
+				B35BB8BD2A42BDC900AECD45 /* SIL.swift in Sources */,
 				B3DB7EEA29E619FE0016D55A /* AppDelegate.swift in Sources */,
+				B34CDF2629F125F9003B2E63 /* LeakPerson.swift in Sources */,
 				B3DB7EEC29E619FE0016D55A /* SceneDelegate.swift in Sources */,
 				B3C5C53E29E68AB700C8C147 /* FinalClassNumber.swift in Sources */,
 				B3DB7F2829E637650016D55A /* StructPerson.swift in Sources */,
